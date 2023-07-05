@@ -1,0 +1,74 @@
+<?php
+
+  session_start();
+
+  if(isset($_SESSION['usuario'])){
+    header("location: ../html/principal");
+  }
+
+?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="../css/sesionStyle.css">
+    <title>Notflix</title>
+    <meta name="title" content="Notflix">
+    <meta name="description" content="Popular movie made by Camila">
+
+    <link rel="shortcut icon" href="../img/logoIcon.svg" type="image/svg+xml">
+  </head>
+
+  <body>
+    <main>
+      <div class="contenerdor_todo">
+
+        <!--Parte de atras -->
+        <div class="caja_trasera">
+
+          <div class="caja_trasera-login">
+            <h3>¿Tienes una cuenta?</h3>
+            <p>Inicia sesion para ingresar a la pagina</p>
+            <button id="btn_ini_sesion">Iniciar sesion</button>
+          </div>
+
+          <div class="caja_trasera-register">
+            <h3>¿No tienes cuenta?</h3>
+            <p>Registrate para poder iniciar sesion</p>
+            <button id="btn_registrarse">Registrarse</button>
+          </div>
+
+        </div>
+
+        <!--Parte de registro o inicio de sesion-->
+        <div class="contenedor_login-register">
+
+          <form action="../php/login_usuario.php" method="post" class="formulario_login">
+            <h2>Iniciar sesion</h2>
+            <input type="email" placeholder="Correo electronico" name="correo" required>
+            <input type="password" placeholder="Contraseña" name="contra" required>
+            <p><a href="../html/recuperar.html">¿Olvido su contraseña?</a></p>
+            <button>Ingresar</button>
+          </form>
+
+          <form action="../php/registro_usuario.php" method="post" class="formulario_register">
+            <h2>Registrarse</h2>
+            <input type="text" placeholder="Usuario" name="usuario" required>
+            <input type="email" placeholder="Correo electronico" name="correo" required>
+            <input type="password" placeholder="Contraseña" name="contra" required>
+            <button>Registrar</button>
+          </form>
+
+        </div>
+
+      </div>
+    </main>
+
+    <script src="../js/sesionJS.js"></script>
+
+  </body>
+</html>
